@@ -1,0 +1,84 @@
+.calendarSelectMois{
+    padding: 1px 0px 1px 1px;
+    color : #000;
+    cursor: pointer;
+    @include border-radius($borderRadius);
+}
+.tableCalendar{
+    text-align:center;
+    table-layout: fixed;
+    min-width: 100%;
+    padding : 5px;
+    margin : auto;
+    background : #F9F9F9;
+    border : 1px solid #E7E7E7;
+    @include border-radius($borderRadius);
+}
+
+.tableCalendar th{
+    vertical-align: top;
+    text-align: center;
+}
+
+.calendar-nav{
+    text-align : center;
+    padding : 3px;
+    color : #F9F9F9;
+    background : #585858;
+    border : 1px solid #E7E7E7;
+    @include border-radius($borderRadius);
+}
+
+.tableCalendar td{
+    width:25px;
+    text-align:center;
+    border: 1px solid #777777;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px;
+}
+
+
+.jour_vide{
+    background-color: #ABABAB;
+    color: #444449;
+}
+.jour_libre{
+    background-color: #50b710;
+    color: #444449;
+}
+.jour_libre:hover{
+    background-color: #64e702;
+    color: #444449;
+    border:2px solid #000;
+}
+.jour_possible{
+    background-color: #ffa500;    
+    color: #444449;
+}
+.jour_possible:hover{
+    background-color:#ffc251;    
+    color: #444449;
+    border:2px solid #000;
+}
+
+.jour_plein{
+    background-color: #F20D18; 
+    color: #444449;
+}
+
+.jour_capacite_depassee{
+    background-color: #444449;
+    color: #fff;
+}
+
+.jour_ferme{
+    background-color: #ABABAB;    
+    color: #444449;
+}
+
+.tableCalendar .daySelected{  
+    border: 2px solid #000000;
+    padding: 2px;
+}
+

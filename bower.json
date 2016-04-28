@@ -1,0 +1,13 @@
+{
+    "name": "mon-entretien",
+    "dependencies": {
+        "angular": "*",
+        "angular-route": "*",
+        "ngstorage":"*",
+        "angular-bootstrap":"*",
+        "bootstrap":"*",
+        "angular-sanitize":"*",
+        "angular-recaptcha":"*",
+        "satellizer" : "*"
+      }
+}

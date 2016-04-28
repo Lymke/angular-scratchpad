@@ -1,0 +1,79 @@
+<nav class="navbar navbar-inverse" role="navigation">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <span ng-show="navCollapsed && 'in'"><a class="navbar-brand" href="#/accueil">{{ 'LAYOUT_SITE_NAME' | translate }}</a></span>
+      </div>
+
+    
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed = true">
+
+        <ul class="nav navbar-nav">
+
+             <!-- Simple dropdown -->
+            <li ng-repeat="menu in menusLeft"  uib-dropdown on-toggle="toggled(open)"  class="dropdown">
+              <a href  class="dropdown-toggle {{menu.class}}"  id="simple-dropdown" uib-dropdown-toggle>
+                {{ menu.libelle | translate }} <b class="caret"></b>
+              </a>
+              <ul  class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="submenu in menu.submenus">
+                  <a href="#/{{submenu.url}}">{{submenu.libelle | translate }}</a>
+              </li>
+              </ul>
+            </li>
+            
+
+        </ul>
+
+        
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <!-- User not connected -->
+            <li  ng-show='!UserService.isLogged();' ng-repeat="menu in menusRight"  uib-dropdown on-toggle="toggled(open)"  class="dropdown">
+              <a href  class="dropdown-toggle {{menu.class}}"  id="simple-dropdown" uib-dropdown-toggle>
+                {{ menu.libelle | translate }} <b class="caret"></b>
+              </a>
+              <ul  class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="submenu in menu.submenus">
+                  <a href="#/{{submenu.url}}">{{submenu.libelle | translate }}</a>
+              </li>
+              </ul>
+            </li>
+            
+          <!-- User connected -->
+            <li  ng-show='UserService.isLogged();' ng-repeat="menu in menusRightConnected"  uib-dropdown on-toggle="toggled(open)"  class="dropdown">
+              <a href  class="dropdown-toggle {{menu.class}}"  id="simple-dropdown" uib-dropdown-toggle>
+                {{ menu.libelle | translate }} <b class="caret"></b>
+              </a>
+              <ul  class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="submenu in menu.submenus">
+                  <a href="#/{{submenu.url}}">{{submenu.libelle | translate }}</a>
+              </li>
+              </ul>
+            </li>
+          
+          
+          <!-- Language -->
+            <li uib-dropdown on-toggle="toggled(open)"  class="dropdown">
+              <a href  class="dropdown-toggle {{menu.class}}"  id="simple-dropdown" uib-dropdown-toggle>
+                {{ 'LANGUE' | translate }}  <b class="caret"></b>
+              </a>
+              <ul  class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href ng-click="traductionService.toggleLanguage('fr_FR');">Français</a></li>
+                <li><a href ng-click="traductionService.toggleLanguage('en_US');">English</a></li>
+              </ul>
+            </li>
+         
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+
+    </nav>

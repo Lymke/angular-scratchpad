@@ -1,0 +1,99 @@
+<form ng-submit="createUser()">
+
+
+    <!-- LOGIN -->
+    <div class="row">
+        <div ng-class="{'form-group':true,'has-feedback':true,'has-error':login_existe, 'has-success' : !login_existe}">
+            <label for="login">{{ 'FORM_USER_CREATE_LOGIN' | translate }} *</label>
+
+            <input ng-model = 'user.login'  type="text" class="form-control" 
+                   name="login" id="login" placeholder="" >
+
+            <span ng-show='login_existe'  class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span ng-show='login_existe' id="helpBlock" class="help-block">Ce login existe déjà.</span>
+
+            <span  ng-show='!login_existe' class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+        </div>
+    </div>
+
+    <!-- Loginriot -->
+
+    <div class="row">
+        <div class="form-group">
+            <label for="name">{{ 'FORM_USER_CREATE_LOGIN_RIOT' | translate }}</label>
+            <input ng-model = 'user.loginriot' type="text" class="form-control" 
+                   name="loginriot" id="loginriot"  placeholder=""/>
+        </div>
+    </div>
+
+
+    <!-- EMAIL -->
+    <div class="row">
+        <div class="form-group">
+            <label for="mail">{{ 'FORM_USER_CREATE_EMAIL' | translate }} <span class="pointer" uib-popover="{{ 'FORM_USER_CREATE_EMAIL' | translate }}" popover-trigger="mouseenter" popover-placement="top-left"><i class="fa fa-info-circle"></i></label></span>
+			<div class="input-group">
+				 <span class="input-group-addon">@</span>
+				<input ng-model = 'user.mail' type="mail" class="form-control" 
+					   name="mail" id="mail"  placeholder="" required/>
+					   
+			</div>
+        </div>
+    </div>
+
+
+    <!-- PASSWORD -->
+    <div class='row'>
+        <div ng-class="{'form-group':true}" class="form-group">
+
+            <!-- input -->
+            <label class="control-label" for="password">{{ 'FORM_USER_CREATE_PASSWORD' | translate }}</label>
+			<div class="input-group">
+			 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input ng-model = 'user.password' ng-keyup="checkPassword();"
+                   type="password" class="form-control" name="password" 
+                   id="password"  placeholder="" required/>
+			</div>
+            <!-- strength of the password (progressbar) -->
+
+            <password-strength-directive ng-model='user.password'></password-strength-directive>       
+
+        </div>
+    </div>
+
+    <!-- PASSWORD 2 -->
+    <div class='row'>
+        <div ng-class="{'form-group':true,'has-feedback':true,'has-error': user.password != user.password2, 'has-success' : user.password == user.password2}">
+            <label class="control-label" for="password2">{{ 'FORM_USER_CREATE_PASSWORD_AGAIN' | translate }}</label>
+			<div class="input-group">
+			 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input ng-model="user.password2" type="password" class="form-control" name="password2" id="password2"  placeholder="" required/>
+			</div>
+            <span  ng-show='user.password != user.password2'  class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span ng-show='user.password != user.password2' id="helpBlock" class="help-block">Le mot de passe n'est pas bien ressaisi</span>
+            <span  ng-show='user.password == user.password2' class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+
+
+    <!-- Recapcha -->
+    <div class="row text-center">
+        <div ng-show='bBadCaptcha' class="alert alert-warning" role="alert">
+            {{ "FORM_USER_CREATE_BAD_CAPTCHA" | translate }}
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div vc-recaptcha key="recaptcha" ></div>
+        </div>
+    </div>
+	
+	<div class="row text-center padding-top-10 pointer">
+		<input type="checkbox" ng-model="user.rulesRead"> <b><a ng-click="open();user.rulesRead=!user.rulesRead;" style="color:#000;">J'ai lu les règles de confidentialité</a></b>
+	</div>
+
+    <!-- BUTTON -->
+    <div class="row text-center padding-top-10">
+        <button type="submit" class="btn btn-primary">
+            {{ "FORM_USER_CREATE_BTN" | translate }}
+        </button>
+    </div>
+</form>

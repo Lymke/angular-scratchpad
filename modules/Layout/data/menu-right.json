@@ -1,0 +1,18 @@
+[
+    {
+        "url" : "user",
+        "libelle":"Utilisateur",
+        "class":"nav-user",
+        "submenus":
+            [
+                {
+                    "url" : "user/register",
+                    "libelle":"Créer un compte"
+                },
+                {
+                    "url" : "user/login",
+                    "libelle":"Se connecter"
+                }
+            ]
+    }
+]

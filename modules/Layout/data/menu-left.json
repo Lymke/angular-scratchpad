@@ -1,0 +1,15 @@
+[
+    
+	{
+        "url" : "accueil",
+        "libelle":"NAVBAR_LEFT_WELCOME",
+        "class":"",
+        "submenus":
+            [
+                {
+                    "url" : "",
+                    "libelle":""
+                }
+            ]
+    }
+]
