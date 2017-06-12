@@ -1,0 +1,15 @@
+[
+    {
+        "url" : "monurl",
+        "actif" : false,
+        "libelle":"MonLibelle",
+        "class":"monthememenu",
+        "submenus":
+            [
+                {
+                    "url" : "monurlsubmenu",
+                    "libelle":"MON_LIBELLE"
+                }
+            ]
+    }
+]

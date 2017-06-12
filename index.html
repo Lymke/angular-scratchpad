@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>DROP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="style.css?r=<%= session.getId()%>" />
+        <link rel="icon" type="image/png" href="images/favicon.png" />
+        <script>document.write('<base href="' + document.location + '" />');</script>
+        
+        <!-- Recaptcha -->
+        <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+
+        <!-- Angular -->
+        <script src="./bower_components/angular/angular.min.js"></script>
+        
+        <script src="./bower_components/angular-translate/angular-translate.min.js"></script>
+        <script src="./bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+        <script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="./bower_components/angular-route/angular-route.min.js"></script>
+        <script src="./bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="./bower_components/ngStorage/ngStorage.min.js"></script>
+        <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="./bower_components/satellizer/dist/satellizer.min.js"></script>
+        <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="./bower_components/angular-recaptcha/release/angular-recaptcha.min.js"></script>
+
+        <script src="config/config.js"></script>
+        
+        <script src="modules/app/app.js"></script>
+        <script src="modules/app/config/translate.config.js"></script>
+        <script src="modules/app/config/whitelist.config.js"></script>
+        <script src="modules/app/controllers/accueil.controller.js"></script>
+        <script src="modules/app/directives/video-youtube.directive.js"></script>
+        <script src="modules/app/routes/default.routes.js"></script>
+        <script src="modules/app/run/root-scope.run.js"></script>
+        <script src="modules/app/services/get-url.service.js"></script>
+        <script src="modules/app/services/traduction.service.js"></script>
+                
+        <script src="modules/layout/layout.js"></script>
+        <script src="modules/layout/controllers/menu.controller.js"></script>
+        <script src="modules/layout/services/menu.service.js"></script>
+        
+    </head>
+
+    <body class="{{themepage}}">
+        <div ng-include="'modules/layout/views/nav.html'" ng-controller="menuController"></div>
+        <div class="wrap">
+            <div ng-view></div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,10 @@
+$i: 1;
+$nb : 20;
+@each $pos in '',-top, -right, -bottom, -left {
+    $i:1;
+    @while $i < $nb {
+      .margin#{$pos}-#{$i}{margin#{$pos} : #{$i}px;}
+      $i: $i + 1;
+    }
+}
+.margin-none{margin : 0px;}
